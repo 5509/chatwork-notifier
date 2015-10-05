@@ -19,7 +19,7 @@
       that.collection = {};
 
       that.getBasicData();
-
+      that.getDataInterval();
     },
     getBasicData: function() {
       var that = this;
@@ -27,14 +27,20 @@
       var collection = that.collection;
 
       model.me = new Model.Me();
-      model.myStatus = new Model.MyStatus();
       collection.rooms = new Collection.Rooms();
 
       return $.when.apply(null, [
         model.me.fetch(),
-        model.myStatus.fetch(),
         collection.rooms.fetch()
       ]);
+    },
+    getDataInterval: function() {
+      var that = this;
+      var collection = that.collection;
+
+      that.timer = setInterval(function() {
+        collection.rooms.fetch();
+      }, 15000);
     }
   });
 

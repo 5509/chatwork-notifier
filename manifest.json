@@ -16,7 +16,6 @@
       "scripts/app/core.js",
       "scripts/controller/base.js",
       "scripts/model/me.js",
-      "scripts/model/my_status.js",
       "scripts/model/room.js",
       "scripts/model/message.js",
       "scripts/collection/rooms.js",
