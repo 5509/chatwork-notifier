@@ -27,10 +27,15 @@
       var collection = that.collection;
 
       model.me = new Model.Me();
+      CWNotifier.config.me = model.me;
+
+      collection.contacts = new Collection.Contacts();
       collection.rooms = new Collection.Rooms();
+      CWNotifier.config.contacts = collection.contacts;
 
       return $.when.apply(null, [
         model.me.fetch(),
+        collection.contacts.fetch(),
         collection.rooms.fetch()
       ]);
     },

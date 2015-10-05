@@ -17,8 +17,10 @@
       "scripts/controller/base.js",
       "scripts/model/me.js",
       "scripts/model/room.js",
+      "scripts/model/contact.js",
       "scripts/model/message.js",
       "scripts/collection/rooms.js",
+      "scripts/collection/contacts.js",
       "scripts/collection/messages.js",
       "scripts/view/notification.js",
       "scripts/background.js"
