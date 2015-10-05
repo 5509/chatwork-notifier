@@ -1,5 +1,7 @@
 (function() {
 
+  'use strict';
+
   if ( !CWNotifier.config.apiKey ) {
     return console.warn('APIキーを設定してください');
   }
@@ -8,19 +10,34 @@
   var Collection = CWNotifier.namespace('Collection');
   var View = CWNotifier.namespace('View');
   var Controller = CWNotifier.namespace('Controller');
-  var config = CWNotifier.config;
 
-  var me = new Model.Me();
-  me.fetch({beforeSend: config.setHeader});
+  Controller.Initializer = CWNotifier.Controller.Base.extend({
+    initialize: function() {
+      var that = this;
 
-  var myStatus = new Model.MyStatus();
-  myStatus.fetch({beforeSend: config.setHeader});
+      that.model = {};
+      that.collection = {};
 
-  var rooms = new Collection.Rooms();
-  rooms.fetch({beforeSend: config.setHeader}).then(function () {
-    rooms.find(function (model) {
-      return model.get('name') === 'nori';
-    }).fetchMessages();
+      that.getBasicData();
+
+    },
+    getBasicData: function() {
+      var that = this;
+      var model = that.model;
+      var collection = that.collection;
+
+      model.me = new Model.Me();
+      model.myStatus = new Model.MyStatus();
+      collection.rooms = new Collection.Rooms();
+
+      return $.when.apply(null, [
+        model.me.fetch(),
+        model.myStatus.fetch(),
+        collection.rooms.fetch()
+      ]);
+    }
   });
+
+  window.app = new Controller.Initializer();
 
 }());
