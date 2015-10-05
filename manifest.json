@@ -39,8 +39,5 @@
     "webNavigation",
     "https://api.chatwork.com/*",
     "notifications"
-  ],
-  "web_accesible_resources": [
-    "callback.html"
   ]
 }
