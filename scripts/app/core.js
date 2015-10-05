@@ -28,6 +28,13 @@ CWNotifier.config = {
   }
 };
 
+// override Backbone.sync to use the beforeSend
+var sync = Backbone.sync;
+Backbone.sync = function(method, model, options) {
+  options.beforeSend = CWNotifier.config.setHeader;
+  return sync(method, model, options);
+};
+
 /*
  * Define namespace under CWNotifier
  *

@@ -10,7 +10,7 @@
       this.messages = new Collection.Messages([], {
         room_id: this.id
       });
-      this.messages.fetch({beforeSend: config.setHeader});
+      this.messages.fetch();
     }
   });
 

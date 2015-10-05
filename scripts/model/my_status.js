@@ -3,7 +3,7 @@
   var Model = CWNotifier.namespace('Model');
 
   Model.MyStatus = Backbone.Model.extend({
-    url:        CWNotifier.config.endpoint + '/my/status',
+    url: CWNotifier.config.endpoint + '/my/status',
     initialize: function () {
       this._eventify();
     },
