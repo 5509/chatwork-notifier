@@ -16,12 +16,17 @@
 
       // 未読件数はここで得る
       that.on('sync', function() {
+        // 未読件数
         var readInfo = that._getReadInfo();
         var mention = readInfo.total.mention;
-
         if (mention && 0 < mention) {
           chrome.browserAction.setBadgeText({ text: '' + mention });
         }
+
+        // roomのmessages取得
+        that.each(function(room) {
+          room.fetchMessages();
+        });
       });
     },
     _getReadInfo: function() {
@@ -45,7 +50,6 @@
         obj.total.mention = obj.total.mention + mention;
       });
 
-      console.log(obj);
       return obj;
     }
   });

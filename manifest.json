@@ -40,6 +40,7 @@
     "unlimitedStorage",
     "webNavigation",
     "https://api.chatwork.com/*",
+    "https://tky-chat-work-appdata.s3.amazonaws.com/*",
     "notifications"
   ]
 }

@@ -17,6 +17,9 @@
 
       that.model = {};
       that.collection = {};
+      that.view = {};
+
+      that.view.notification = new View.Notification();
 
       that.getBasicData();
       that.getDataInterval();
@@ -46,7 +49,7 @@
       that.timer = setInterval(function() {
         collection.rooms.fetch();
       // configで決められたほうがよさそう
-      }, 15000);
+      }, 25000);
     }
   });
 
