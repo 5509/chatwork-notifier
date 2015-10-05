@@ -1,0 +1,46 @@
+{
+  "manifest_version": 2,
+  "name": "chatwork-notif",
+  "description": "Display unread badges and notify new messages of chatwork",
+  "version": "1.0",
+  "icon": {
+    "16": "",
+    "48": "",
+    "128": ""
+  },
+  "background": {
+    "scripts": [
+      "scripts/libs/jquery.js",
+      "scripts/libs/underscore.js",
+      "scripts/libs/backbone.js",
+      "scripts/app/core.js",
+      "scripts/controller/base.js",
+      "scripts/model/me.js",
+      "scripts/model/my_status.js",
+      "scripts/model/room.js",
+      "scripts/model/message.js",
+      "scripts/collection/rooms.js",
+      "scripts/collection/messages.js",
+      "scripts/background.js"
+    ]
+  },
+  "browser_action": {
+    "default_icon": {
+      "19": "images/icon.png",
+      "38": "images/icon.png"
+    },
+    "default_title": "chatwork-notif",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "tabs",
+    "storage",
+    "unlimitedStorage",
+    "webNavigation",
+    "https://api.chatwork.com/*",
+    "notifications"
+  ],
+  "web_accesible_resources": [
+    "callback.html"
+  ]
+}
