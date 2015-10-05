@@ -40,6 +40,7 @@
 
       that.timer = setInterval(function() {
         collection.rooms.fetch();
+      // configで決められたほうがよさそう
       }, 15000);
     }
   });

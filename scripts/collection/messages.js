@@ -9,6 +9,7 @@
       this.room_id = options.room_id;
     },
     url: function () {
+      // force=1はテスト用で毎回全て取得する、force=0にしておいて常に差分しか取らないようにする
       return CWNotifier.config.endpoint + '/rooms/' + this.room_id + '/messages?force=1'
     }
   });
