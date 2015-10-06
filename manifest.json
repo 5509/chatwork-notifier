@@ -40,5 +40,7 @@
     "webNavigation",
     "https://api.chatwork.com/*",
     "https://tky-chat-work-appdata.s3.amazonaws.com/*",
-  ]
+    "notifications"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }

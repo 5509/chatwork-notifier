@@ -16,12 +16,17 @@
 
       // 未読件数はここで得る
       that.on('sync', function() {
+        // popup用にroomsを保存
+        localStorage.setItem('cw_notifier_rooms', JSON.stringify(that.toJSON()));
+
         // 未読件数
         var readInfo = that._getReadInfo();
         var mention = readInfo.total.mention;
         if (mention && 0 < mention) {
           chrome.browserAction.setBadgeText({ text: '' + mention });
         }
+
+        Backbone.trigger('fetch:rooms');
 
         // roomのmessages取得
         that.each(function(room) {
