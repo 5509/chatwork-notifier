@@ -22,7 +22,6 @@
       "scripts/collection/rooms.js",
       "scripts/collection/contacts.js",
       "scripts/collection/messages.js",
-      "scripts/view/notification.js",
       "scripts/background.js"
     ]
   },
@@ -41,6 +40,5 @@
     "webNavigation",
     "https://api.chatwork.com/*",
     "https://tky-chat-work-appdata.s3.amazonaws.com/*",
-    "notifications"
   ]
 }

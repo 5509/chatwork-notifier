@@ -21,8 +21,23 @@
 
       that.view.notification = new View.Notification();
 
+      that._eventify();
       that.getBasicData();
       that.getDataInterval();
+    },
+    _eventify: function() {
+      Backbone.on('found:mention', function(obj) {
+        var message = obj.message;
+        chrome.notifications.create('CWNotifier' + Date.now(), {
+          type: 'basic',
+          title: '新着メッセージがあります',
+          message: message.get('body'),
+          iconUrl: message.get('account').avatar_image_url
+        });
+        chrome.notifications.onButtonClicked.addListener(function() {
+          window.open('https://www.chatwork.com/#rid' + obj.room_id + '-' + obj.message.get('id'))
+        });
+      });
     },
     getBasicData: function() {
       var that = this;
